@@ -14,12 +14,16 @@
         private System.Windows.Forms.CheckBox FChkDone;
         private System.Windows.Forms.ListBox FLstItems;
         private System.Windows.Forms.Button FBtnAdd;
+        private System.Windows.Forms.Button FBtnEdit;
+        private System.Windows.Forms.Button FBtnDelete;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addItemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editItemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteItemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sortByDueDateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sortByAddedOrderToolStripMenuItem;
@@ -51,6 +55,8 @@
             this.FChkDone = new System.Windows.Forms.CheckBox();
             this.FLstItems = new System.Windows.Forms.ListBox();
             this.FBtnAdd = new System.Windows.Forms.Button();
+            this.FBtnEdit = new System.Windows.Forms.Button();
+            this.FBtnDelete = new System.Windows.Forms.Button();
             this.FTitleLabel = new System.Windows.Forms.Label();
             this.FContentLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -58,7 +64,9 @@
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sortByDueDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sortByAddedOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -122,6 +130,28 @@
             this.FBtnAdd.UseVisualStyleBackColor = true;
             this.FBtnAdd.Click += new System.EventHandler(this.FBtnAdd_Click);
             // 
+            // FBtnEdit
+            // 
+            this.FBtnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FBtnEdit.Location = new System.Drawing.Point(517, 58);
+            this.FBtnEdit.Name = "FBtnEdit";
+            this.FBtnEdit.Size = new System.Drawing.Size(56, 30);
+            this.FBtnEdit.TabIndex = 13;
+            this.FBtnEdit.Text = "編集(E)";
+            this.FBtnEdit.UseVisualStyleBackColor = true;
+            this.FBtnEdit.Click += new System.EventHandler(this.FBtnEdit_Click);
+            // 
+            // FBtnDelete
+            // 
+            this.FBtnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FBtnDelete.Location = new System.Drawing.Point(589, 58);
+            this.FBtnDelete.Name = "FBtnDelete";
+            this.FBtnDelete.Size = new System.Drawing.Size(56, 30);
+            this.FBtnDelete.TabIndex = 14;
+            this.FBtnDelete.Text = "削除(D)";
+            this.FBtnDelete.UseVisualStyleBackColor = true;
+            this.FBtnDelete.Click += new System.EventHandler(this.FBtnDelete_Click);
+            // 
             // FTitleLabel
             // 
             this.FTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -182,17 +212,33 @@
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripMenuItem});
+            this.addItemToolStripMenuItem,
+            this.editItemToolStripMenuItem,
+            this.deleteItemToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.editToolStripMenuItem.Text = "編集";
             // 
-            // addToolStripMenuItem
+            // addItemToolStripMenuItem
             // 
-            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addToolStripMenuItem.Text = "追加(A)";
-            this.addToolStripMenuItem.Click += new System.EventHandler(this.FBtnAdd_Click);
+            this.addItemToolStripMenuItem.Name = "addItemToolStripMenuItem";
+            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addItemToolStripMenuItem.Text = "追加(A)";
+            this.addItemToolStripMenuItem.Click += new System.EventHandler(this.FBtnAdd_Click);
+            // 
+            // editItemToolStripMenuItem
+            // 
+            this.editItemToolStripMenuItem.Name = "editItemToolStripMenuItem";
+            this.editItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editItemToolStripMenuItem.Text = "編集(E)";
+            this.editItemToolStripMenuItem.Click += new System.EventHandler(this.FBtnEdit_Click);
+            // 
+            // deleteItemToolStripMenuItem
+            // 
+            this.deleteItemToolStripMenuItem.Name = "deleteItemToolStripMenuItem";
+            this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteItemToolStripMenuItem.Text = "削除(D)";
+            this.deleteItemToolStripMenuItem.Click += new System.EventHandler(this.FBtnDelete_Click);
             // 
             // viewToolStripMenuItem
             // 
@@ -231,6 +277,8 @@
             this.Controls.Add(this.FChkDone);
             this.Controls.Add(this.FLstItems);
             this.Controls.Add(this.FBtnAdd);
+            this.Controls.Add(this.FBtnDelete);
+            this.Controls.Add(this.FBtnEdit);
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(447, 414);
             this.Name = "MainForm";
@@ -243,7 +291,7 @@
         }
 
         #endregion
-
+        
         private System.Windows.Forms.Label FTitleLabel;
         private System.Windows.Forms.Label FContentLabel;
     }
