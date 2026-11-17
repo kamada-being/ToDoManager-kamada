@@ -51,8 +51,7 @@ namespace ToDoManager.Services {
         /// </summary>
         /// <param name="vId">削除するToDoアイテムのID</param>
         public void Delete(int vId) {
-            var wItem = FItems.FirstOrDefault(x => x.Id == vId);
-            if (wItem != null) FItems.Remove(wItem);
+            FItems.RemoveAll(x => x.Id == vId);
         }
 
         /// <summary>

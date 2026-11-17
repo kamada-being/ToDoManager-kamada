@@ -104,8 +104,8 @@
             this.FChkDone.Location = new System.Drawing.Point(445, 278);
             this.FChkDone.Name = "FChkDone";
             this.FChkDone.Size = new System.Drawing.Size(80, 19);
-            this.FChkDone.TabIndex = 9;
-            this.FChkDone.Text = "完了(F)";
+            this.FChkDone.TabIndex = 8;
+            this.FChkDone.Text = "完了(&F)";
             // 
             // FLstItems
             // 
@@ -126,7 +126,7 @@
             this.FBtnAdd.Name = "FBtnAdd";
             this.FBtnAdd.Size = new System.Drawing.Size(56, 30);
             this.FBtnAdd.TabIndex = 2;
-            this.FBtnAdd.Text = "追加(A)";
+            this.FBtnAdd.Text = "追加(&A)";
             this.FBtnAdd.UseVisualStyleBackColor = true;
             this.FBtnAdd.Click += new System.EventHandler(this.FBtnAdd_Click);
             // 
@@ -136,8 +136,8 @@
             this.FBtnEdit.Location = new System.Drawing.Point(517, 58);
             this.FBtnEdit.Name = "FBtnEdit";
             this.FBtnEdit.Size = new System.Drawing.Size(56, 30);
-            this.FBtnEdit.TabIndex = 13;
-            this.FBtnEdit.Text = "編集(E)";
+            this.FBtnEdit.TabIndex = 3;
+            this.FBtnEdit.Text = "編集(&E)";
             this.FBtnEdit.UseVisualStyleBackColor = true;
             this.FBtnEdit.Click += new System.EventHandler(this.FBtnEdit_Click);
             // 
@@ -147,19 +147,20 @@
             this.FBtnDelete.Location = new System.Drawing.Point(589, 58);
             this.FBtnDelete.Name = "FBtnDelete";
             this.FBtnDelete.Size = new System.Drawing.Size(56, 30);
-            this.FBtnDelete.TabIndex = 14;
-            this.FBtnDelete.Text = "削除(D)";
+            this.FBtnDelete.TabIndex = 4;
+            this.FBtnDelete.Text = "削除(&D)";
             this.FBtnDelete.UseVisualStyleBackColor = true;
             this.FBtnDelete.Click += new System.EventHandler(this.FBtnDelete_Click);
             // 
             // FTitleLabel
             // 
             this.FTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FTitleLabel.AutoEllipsis = true;
             this.FTitleLabel.AutoSize = true;
             this.FTitleLabel.Location = new System.Drawing.Point(442, 104);
             this.FTitleLabel.Name = "FTitleLabel";
             this.FTitleLabel.Size = new System.Drawing.Size(40, 12);
-            this.FTitleLabel.TabIndex = 11;
+            this.FTitleLabel.TabIndex = 0;
             this.FTitleLabel.Text = "タイトル";
             // 
             // FContentLabel
@@ -169,7 +170,7 @@
             this.FContentLabel.Location = new System.Drawing.Point(442, 162);
             this.FContentLabel.Name = "FContentLabel";
             this.FContentLabel.Size = new System.Drawing.Size(29, 12);
-            this.FContentLabel.TabIndex = 12;
+            this.FContentLabel.TabIndex = 0;
             this.FContentLabel.Text = "内容";
             // 
             // menuStrip1
@@ -199,14 +200,14 @@
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             this.loadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.loadToolStripMenuItem.Text = "読込(L)";
+            this.loadToolStripMenuItem.Text = "読込(&L)";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.FBtnXmlLoad_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveToolStripMenuItem.Text = "保存(S)";
+            this.saveToolStripMenuItem.Text = "保存(&S)";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.FBtnXml_Click);
             // 
             // editToolStripMenuItem
@@ -223,21 +224,21 @@
             // 
             this.addItemToolStripMenuItem.Name = "addItemToolStripMenuItem";
             this.addItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addItemToolStripMenuItem.Text = "追加(A)";
+            this.addItemToolStripMenuItem.Text = "追加(&A)";
             this.addItemToolStripMenuItem.Click += new System.EventHandler(this.FBtnAdd_Click);
             // 
             // editItemToolStripMenuItem
             // 
             this.editItemToolStripMenuItem.Name = "editItemToolStripMenuItem";
             this.editItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.editItemToolStripMenuItem.Text = "編集(E)";
+            this.editItemToolStripMenuItem.Text = "編集(&E)";
             this.editItemToolStripMenuItem.Click += new System.EventHandler(this.FBtnEdit_Click);
             // 
             // deleteItemToolStripMenuItem
             // 
             this.deleteItemToolStripMenuItem.Name = "deleteItemToolStripMenuItem";
             this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.deleteItemToolStripMenuItem.Text = "削除(D)";
+            this.deleteItemToolStripMenuItem.Text = "削除(&D)";
             this.deleteItemToolStripMenuItem.Click += new System.EventHandler(this.FBtnDelete_Click);
             // 
             // viewToolStripMenuItem
@@ -253,14 +254,14 @@
             // 
             this.sortByDueDateToolStripMenuItem.Name = "sortByDueDateToolStripMenuItem";
             this.sortByDueDateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sortByDueDateToolStripMenuItem.Text = "期限順(O)";
+            this.sortByDueDateToolStripMenuItem.Text = "期限順(&O)";
             this.sortByDueDateToolStripMenuItem.Click += new System.EventHandler(this.SortByDueDateToolStripMenuItem_Click);
             // 
             // sortByAddedOrderToolStripMenuItem
             // 
             this.sortByAddedOrderToolStripMenuItem.Name = "sortByAddedOrderToolStripMenuItem";
             this.sortByAddedOrderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sortByAddedOrderToolStripMenuItem.Text = "追加順(T)";
+            this.sortByAddedOrderToolStripMenuItem.Text = "追加順(&T)";
             this.sortByAddedOrderToolStripMenuItem.Click += new System.EventHandler(this.SortByAddedOrderToolStripMenuItem_Click);
             // 
             // MainForm
@@ -289,9 +290,7 @@
             this.PerformLayout();
 
         }
-
         #endregion
-        
         private System.Windows.Forms.Label FTitleLabel;
         private System.Windows.Forms.Label FContentLabel;
     }
