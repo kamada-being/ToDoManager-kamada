@@ -16,6 +16,8 @@
         private System.Windows.Forms.Button FBtnAdd;
         private System.Windows.Forms.Button FBtnEdit;
         private System.Windows.Forms.Button FBtnDelete;
+        private System.Windows.Forms.Label FTitleLabel;
+        private System.Windows.Forms.Label FContentLabel;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
@@ -40,15 +42,12 @@
             }
             base.Dispose(disposing);
         }
-
         #region Windows フォーム デザイナーで生成されたコード
-
         /// <summary>
         /// デザイナー サポートに必要なメソッドです。このメソッドの内容を
         /// コード エディターで変更しないでください。
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             this.FTxtTitle = new System.Windows.Forms.TextBox();
             this.FTxtContent = new System.Windows.Forms.TextBox();
             this.FDtpDueDate = new System.Windows.Forms.DateTimePicker();
@@ -109,8 +108,8 @@
             // 
             // FLstItems
             // 
-            this.FLstItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.FLstItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FLstItems.ItemHeight = 12;
             this.FLstItems.Location = new System.Drawing.Point(8, 55);
@@ -155,7 +154,6 @@
             // FTitleLabel
             // 
             this.FTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.FTitleLabel.AutoEllipsis = true;
             this.FTitleLabel.AutoSize = true;
             this.FTitleLabel.Location = new System.Drawing.Point(442, 104);
             this.FTitleLabel.Name = "FTitleLabel";
@@ -288,10 +286,7 @@
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
         #endregion
-        private System.Windows.Forms.Label FTitleLabel;
-        private System.Windows.Forms.Label FContentLabel;
     }
 }

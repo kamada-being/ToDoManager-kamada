@@ -13,7 +13,7 @@ namespace ToDoManager.Services {
         #region フィールド
         private List<TodoItem> FItems = new List<TodoItem>();
         private int FNextId = 1;
-        private string C_FilePath = "todos.xml";
+        private const string C_FilePath = "todos.xml";
         #endregion
 
         /// <summary>
@@ -50,32 +50,7 @@ namespace ToDoManager.Services {
         /// ToDoアイテムを削除
         /// </summary>
         /// <param name="vId">削除するToDoアイテムのID</param>
-        public void Delete(int vId) {
-            FItems.RemoveAll(x => x.Id == vId);
-        }
-
-        /// <summary>
-        /// 新しいToDoアイテムをコレクションに追加
-        /// </summary>
-        /// <param name="vItem">ToDoアイテム</param>
-        private void Add(TodoItem vItem) {
-            vItem.Id = FNextId++;
-            FItems.Add(vItem);
-        }
-
-        /// <summary>
-        /// 既存のToDoアイテムの内容を更新
-        /// </summary>
-        /// <param name="vItem">ToDoアイテム</param>
-        private void Update(TodoItem vItem) {
-            TodoItem wExisting = FItems.FirstOrDefault(x => x.Id == vItem.Id);
-            if (wExisting == null) throw new InvalidOperationException("更新対象のToDoが存在しません。");
-
-            wExisting.Title = vItem.Title;
-            wExisting.Content = vItem.Content;
-            wExisting.DueDate = vItem.DueDate;
-            wExisting.IsCompleted = vItem.IsCompleted;
-        }
+        public void Delete(int vId) => FItems.RemoveAll(x => x.Id == vId);
 
         /// <summary>
         /// XMLで保存
@@ -124,6 +99,31 @@ namespace ToDoManager.Services {
                     FItems[wMinIndex] = wTemp;
                 }
             }
+        }
+        #endregion
+
+        #region privateメソッド
+        /// <summary>
+        /// 新しいToDoアイテムをコレクションに追加
+        /// </summary>
+        /// <param name="vItem">ToDoアイテム</param>
+        private void Add(TodoItem vItem) {
+            vItem.Id = FNextId++;
+            FItems.Add(vItem);
+        }
+
+        /// <summary>
+        /// 既存のToDoアイテムの内容を更新
+        /// </summary>
+        /// <param name="vItem">ToDoアイテム</param>
+        private void Update(TodoItem vItem) {
+            var wExisting = FItems.FirstOrDefault(x => x.Id == vItem.Id);
+            if (wExisting == null) throw new InvalidOperationException("更新対象のToDoが存在しません。");
+
+            wExisting.Title = vItem.Title;
+            wExisting.Content = vItem.Content;
+            wExisting.DueDate = vItem.DueDate;
+            wExisting.IsCompleted = vItem.IsCompleted;
         }
         #endregion
     }

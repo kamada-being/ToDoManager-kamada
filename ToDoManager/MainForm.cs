@@ -32,34 +32,32 @@ namespace ToDoManager {
         /// <summary>
         /// 追加アイテムを処理
         /// </summary>
-        private void AddItem() {
-            using (var wForm = new TodoEditForm(new TodoItem())) {
-                if (wForm.ShowDialog() == DialogResult.OK) SaveItem(wForm.Item);
-            }
-        }
+        private void AddItem() => ShowEditDialogAndSaveItem(new TodoItem());
 
         /// <summary>
         /// アイテムを編集
         /// </summary>
         private void EditItem() {
             if (!(FLstItems.SelectedItem is TodoItem wSelected)) return;
-            using (var wForm = new TodoEditForm(wSelected)) {
-                if (wForm.ShowDialog() == DialogResult.OK) SaveItem(wSelected);
-            }
+
+            ShowEditDialogAndSaveItem(wSelected);
         }
 
         /// <summary>
-        /// 結果を保存
+        /// 編集ダイアログを表示。アイテムを保存し、一覧を更新
         /// </summary>
-        /// <param name="vItem">保存するアイテム</param>
-        private void SaveItem(TodoItem vItem) {
-            try {
-                FService.AddOrUpdate(vItem);
-                UpdateList();
-            } catch (ArgumentException wEx) {
-                MessageBox.Show(this, wEx.Message, "入力エラー", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } catch (Exception wEx) {
-                MessageBox.Show(this, $"保存に失敗しました：{wEx.Message}", "システムエラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        /// <param name="vItem">編集するToDoアイテム</param>
+        private void ShowEditDialogAndSaveItem(TodoItem vItem) {
+            using (var wForm = new TodoEditForm(vItem)) {
+                if (wForm.ShowDialog() != DialogResult.OK) return;
+                try {
+                    FService.AddOrUpdate(wForm.Item);
+                    UpdateList();
+                } catch (ArgumentException wEx) {
+                    MessageBox.Show(this, wEx.Message, "入力エラー", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                } catch (Exception wEx) {
+                    MessageBox.Show(this, $"保存に失敗しました：{wEx.Message}", "システムエラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -70,10 +68,10 @@ namespace ToDoManager {
             if (!(FLstItems.SelectedItem is TodoItem wSelected)) return;
 
             var wResult = MessageBox.Show(this, $"「{wSelected.Title}」を削除しますか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (wResult == DialogResult.Yes) {
-                FService.Delete(wSelected.Id);
-                UpdateList();
-            }
+            if (wResult != DialogResult.Yes) return;
+
+            FService.Delete(wSelected.Id);
+            UpdateList();
         }
         #endregion
 
