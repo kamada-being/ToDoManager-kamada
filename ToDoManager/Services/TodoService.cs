@@ -14,6 +14,9 @@ namespace ToDoManager.Services {
         private List<TodoItem> FItems = new List<TodoItem>();
         private int FNextId = 1;
         private const string C_FilePath = "todos.xml";
+        public const int C_MinTitleLength = 1;
+        public const int C_MaxTitleLength = 20;
+        public const int C_MaxContentLength = 150;
         #endregion
 
         /// <summary>
@@ -23,22 +26,17 @@ namespace ToDoManager.Services {
         }
 
         #region publicメソッド
-
         /// <summary>
         /// ToDoアイテムの一覧を取得する
         /// </summary>
         /// <returns>登録されているToDoアイテムの読み取り専用リスト</returns>
-        public IReadOnlyList<TodoItem> GetItems() {
-            return FItems;
-        }
+        public IReadOnlyList<TodoItem> GetItems() => FItems;
 
         /// <summary>
         /// ToDoアイテムを追加または更新
         /// </summary>
         /// <param name="vItem">追加または更新するToDoアイテム</param>
         public void AddOrUpdate(TodoItem vItem) {
-            if (vItem == null) throw new ArgumentNullException(nameof(vItem));
-
             if (vItem.Id == 0) {
                 Add(vItem);
             } else {
@@ -51,6 +49,18 @@ namespace ToDoManager.Services {
         /// </summary>
         /// <param name="vId">削除するToDoアイテムのID</param>
         public void Delete(int vId) => FItems.RemoveAll(x => x.Id == vId);
+
+        /// <summary>
+        /// ToDoアイテムの入力内容を検証する
+        /// </summary>
+        /// <param name="vItem">検証対象のToDoアイテム</param>
+        public static void Validate(TodoItem vItem) {
+            if (string.IsNullOrWhiteSpace(vItem?.Title) || vItem.Title.Length < C_MinTitleLength || vItem.Title.Length > C_MaxTitleLength)
+                throw new ArgumentException($"タイトルは{C_MinTitleLength}文字以上、{C_MaxTitleLength}文字以内で入力してください。", nameof(vItem.Title));
+
+            if (vItem.Content?.Length > C_MaxContentLength)
+                throw new ArgumentException($"内容は{C_MaxContentLength}文字以下で入力してください。", nameof(vItem.Content));
+        }
 
         /// <summary>
         /// XMLで保存
