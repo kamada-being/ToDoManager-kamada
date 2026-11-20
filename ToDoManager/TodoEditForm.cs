@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using ToDoManager.Models;
+using ToDoManager.Services;
 
 namespace ToDoManager {
     /// <summary>
@@ -31,16 +32,45 @@ namespace ToDoManager {
 
         #region privateメソッド
         /// <summary>
-        /// 入力内容をItemに反映しバリデーションする
+        /// 入力内容を検証し、問題がなければItemに反映してフォームを閉じる
         /// </summary>
         private void SaveItem() {
-            Item.Title = FTxtTitle.Text;
-            Item.Content = FTxtContent.Text;
-            Item.DueDate = FDtpDueDate.Value;
-            Item.IsCompleted = FChkDone.Checked;
+            var wItem = new TodoItem {
+                Title = FTxtTitle.Text,
+                Content = FTxtContent.Text,
+                DueDate = FDtpDueDate.Value,
+                IsCompleted = FChkDone.Checked,
+            };
 
-            DialogResult = DialogResult.OK;
-            Close();
+            try {
+                TodoService.Validate(wItem);
+
+                Item.Title = FTxtTitle.Text;
+                Item.Content = FTxtContent.Text;
+                Item.DueDate = FDtpDueDate.Value;
+                Item.IsCompleted = FChkDone.Checked;
+
+                DialogResult = DialogResult.OK;
+                Close();
+            } catch (ArgumentException wEx) {
+                var wErrorMessage = string.Empty;
+                switch (wEx.ParamName) {
+                    case nameof(TodoItem.Title):
+                        wErrorMessage = $"タイトルは{TodoService.C_MinTitleLength}文字以上、{TodoService.C_MaxTitleLength}文字以内で入力してください。";
+                        FTxtTitle.Focus();
+                        break;
+
+                    case nameof(TodoItem.Content):
+                        wErrorMessage = $"内容は{TodoService.C_MaxContentLength}文字以下で入力してください。";
+                        FTxtContent.Focus();
+                        break;
+
+                    default:
+                        wErrorMessage = wEx.Message;
+                        break;
+                }
+                MessageBox.Show(this, wErrorMessage, "入力エラー", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         #endregion
 
