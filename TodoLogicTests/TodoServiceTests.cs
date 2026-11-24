@@ -1,6 +1,6 @@
-﻿using System;
+﻿using NUnit.Framework;
+using System;
 using System.Linq;
-using NUnit.Framework;
 using ToDoManager.Models;
 using ToDoManager.Services;
 
@@ -10,25 +10,16 @@ namespace ToDoManagerTests {
     /// </summary>
     [TestFixture]
     public class TodoServiceTests {
-        #region フィールド
-        private readonly TodoItem FDefaultItem = new TodoItem {
-            Title = "Test",
-            Content = "TestContent",
-            DueDate = DateTime.Today,
-            IsCompleted = false
-        };
-        #endregion
-
         #region ヘルパーメソッド
         /// <summary>
-        /// デフォルトのTodoItemのコピーを生成する
+        /// デフォルトのTodoItemを生成する
         /// </summary>
         private TodoItem CreateDefaultItem() =>
             new TodoItem {
-                Title = FDefaultItem.Title,
-                Content = FDefaultItem.Content,
-                DueDate = FDefaultItem.DueDate,
-                IsCompleted = FDefaultItem.IsCompleted
+                Title = "Test",
+                Content = "TestContent",
+                DueDate = DateTime.Today,
+                IsCompleted = false
             };
         #endregion
 
@@ -67,8 +58,14 @@ namespace ToDoManagerTests {
         [Test]
         public void SortByDueDate_期限順ソート_期限順にソートされる() {
             var wService = new TodoService();
-            var wItem1 = CreateDefaultItem(); wItem1.Title = "Test1"; wItem1.DueDate = DateTime.Today.AddDays(1);
-            var wItem2 = CreateDefaultItem(); wItem2.Title = "Test2"; wItem2.DueDate = DateTime.Today;
+            var wItem1 = CreateDefaultItem();
+            wItem1.Title = "Test1";
+            wItem1.DueDate = DateTime.Today.AddDays(1);
+
+            var wItem2 = CreateDefaultItem();
+            wItem2.Title = "Test2";
+            wItem2.DueDate = DateTime.Today;
+
             wService.AddOrUpdate(wItem1);
             wService.AddOrUpdate(wItem2);
 
@@ -85,8 +82,14 @@ namespace ToDoManagerTests {
         [Test]
         public void SortByAddedOrder_追加順ソート_追加順にソートされる() {
             var wService = new TodoService();
-            var wItem1 = CreateDefaultItem(); wItem1.Title = "Test1"; wItem1.DueDate = DateTime.Today.AddDays(1);
-            var wItem2 = CreateDefaultItem(); wItem2.Title = "Test2"; wItem2.DueDate = DateTime.Today;
+            var wItem1 = CreateDefaultItem();
+            wItem1.Title = "Test1";
+            wItem1.DueDate = DateTime.Today.AddDays(1);
+
+            var wItem2 = CreateDefaultItem();
+            wItem2.Title = "Test2";
+            wItem2.DueDate = DateTime.Today;
+
             wService.AddOrUpdate(wItem1);
             wService.AddOrUpdate(wItem2);
 
@@ -102,7 +105,8 @@ namespace ToDoManagerTests {
         /// </summary>
         [Test]
         public void Validate_ToDoの検証_タイトルが最大文字数_例外が発生しない() {
-            var wItem = CreateDefaultItem(); wItem.Title = new string('あ', TodoService.C_MaxTitleLength);
+            var wItem = CreateDefaultItem();
+            wItem.Title = new string('あ', TodoService.C_MaxTitleLength);
             Assert.DoesNotThrow(() => TodoService.Validate(wItem));
         }
 
@@ -111,7 +115,8 @@ namespace ToDoManagerTests {
         /// </summary>
         [Test]
         public void Validate_ToDoの検証_タイトルが最低文字数_例外が発生しない() {
-            var wItem = CreateDefaultItem(); wItem.Title = new string('あ', TodoService.C_MinTitleLength);
+            var wItem = CreateDefaultItem();
+            wItem.Title = new string('あ', TodoService.C_MinTitleLength);
             Assert.DoesNotThrow(() => TodoService.Validate(wItem));
         }
 
@@ -121,7 +126,8 @@ namespace ToDoManagerTests {
         [Test]
         public void Validate_ToDoの検証_タイトルの前後が空白_例外が発生しない() {
             var wCorrectTitle = " Test ";
-            var wItem = CreateDefaultItem(); wItem.Title = wCorrectTitle;
+            var wItem = CreateDefaultItem();
+            wItem.Title = wCorrectTitle;
             Assert.DoesNotThrow(() => TodoService.Validate(wItem));
 
             Assert.AreEqual(wCorrectTitle, wItem.Title);
@@ -132,7 +138,8 @@ namespace ToDoManagerTests {
         /// </summary>
         [Test]
         public void Validate_ToDoの検証_内容が最大文字数_例外が発生しない() {
-            var wItem = CreateDefaultItem(); wItem.Content = new string('あ', TodoService.C_MaxContentLength);
+            var wItem = CreateDefaultItem();
+            wItem.Content = new string('あ', TodoService.C_MaxContentLength);
             Assert.DoesNotThrow(() => TodoService.Validate(wItem));
         }
 
@@ -141,7 +148,8 @@ namespace ToDoManagerTests {
         /// </summary>
         [Test]
         public void Validate_ToDoの検証_内容が空文字_例外が発生しない() {
-            var wItem = CreateDefaultItem(); wItem.Content = string.Empty;
+            var wItem = CreateDefaultItem();
+            wItem.Content = string.Empty;
             Assert.DoesNotThrow(() => TodoService.Validate(wItem));
         }
 
@@ -150,7 +158,8 @@ namespace ToDoManagerTests {
         /// </summary>
         [Test]
         public void Validate_ToDoの検証_内容がnull_例外が発生しない() {
-            var wItem = CreateDefaultItem(); wItem.Content = null;
+            var wItem = CreateDefaultItem();
+            wItem.Content = null;
             Assert.DoesNotThrow(() => TodoService.Validate(wItem));
         }
         #endregion
@@ -161,7 +170,8 @@ namespace ToDoManagerTests {
         /// </summary>
         [Test]
         public void Validate_ToDoの検証_タイトルが空文字_ArgumentExceptionが発生する() {
-            var wItem = CreateDefaultItem(); wItem.Title = string.Empty;
+            var wItem = CreateDefaultItem();
+            wItem.Title = string.Empty;
 
             var wEx = Assert.Throws<ArgumentException>(() => TodoService.Validate(wItem));
             Assert.AreEqual(nameof(wItem.Title), wEx.ParamName);
@@ -172,7 +182,8 @@ namespace ToDoManagerTests {
         /// </summary>
         [Test]
         public void Validate_ToDoの検証_タイトルがnull_ArgumentExceptionが発生する() {
-            var wItem = CreateDefaultItem(); wItem.Title = null;
+            var wItem = CreateDefaultItem();
+            wItem.Title = null;
 
             var wEx = Assert.Throws<ArgumentException>(() => TodoService.Validate(wItem));
             Assert.AreEqual(nameof(wItem.Title), wEx.ParamName);
@@ -183,7 +194,8 @@ namespace ToDoManagerTests {
         /// </summary>
         [Test]
         public void Validate_ToDoの検証_タイトルが半角スペースのみ_ArgumentExceptionが発生する() {
-            var wItem = CreateDefaultItem(); wItem.Title = " ";
+            var wItem = CreateDefaultItem();
+            wItem.Title = " ";
 
             var wEx = Assert.Throws<ArgumentException>(() => TodoService.Validate(wItem));
             Assert.AreEqual(nameof(wItem.Title), wEx.ParamName);
@@ -194,7 +206,8 @@ namespace ToDoManagerTests {
         /// </summary>
         [Test]
         public void Validate_ToDoの検証_タイトルが全角スペースのみ_ArgumentExceptionが発生する() {
-            var wItem = CreateDefaultItem(); wItem.Title = "　";
+            var wItem = CreateDefaultItem();
+            wItem.Title = "　";
 
             var wEx = Assert.Throws<ArgumentException>(() => TodoService.Validate(wItem));
             Assert.AreEqual(nameof(wItem.Title), wEx.ParamName);
@@ -205,7 +218,8 @@ namespace ToDoManagerTests {
         /// </summary>
         [Test]
         public void Validate_ToDoの検証_タイトルがタブ文字のみ_ArgumentExceptionが発生する() {
-            var wItem = CreateDefaultItem(); wItem.Title = "\t\t";
+            var wItem = CreateDefaultItem();
+            wItem.Title = "\t\t";
 
             var wEx = Assert.Throws<ArgumentException>(() => TodoService.Validate(wItem));
             Assert.AreEqual(nameof(wItem.Title), wEx.ParamName);
@@ -216,7 +230,8 @@ namespace ToDoManagerTests {
         /// </summary>
         [Test]
         public void Validate_ToDoの検証_タイトルが最大文字数超過_ArgumentExceptionが発生する() {
-            var wItem = CreateDefaultItem(); wItem.Title = new string('あ', TodoService.C_MaxTitleLength + 1);
+            var wItem = CreateDefaultItem();
+            wItem.Title = new string('あ', TodoService.C_MaxTitleLength + 1);
 
             var wEx = Assert.Throws<ArgumentException>(() => TodoService.Validate(wItem));
             Assert.AreEqual(nameof(wItem.Title), wEx.ParamName);
@@ -227,7 +242,8 @@ namespace ToDoManagerTests {
         /// </summary>
         [Test]
         public void Validate_ToDoの検証_内容が最大文字数超過_ArgumentExceptionが発生する() {
-            var wItem = CreateDefaultItem(); wItem.Content = new string('あ', TodoService.C_MaxContentLength + 1);
+            var wItem = CreateDefaultItem();
+            wItem.Content = new string('あ', TodoService.C_MaxContentLength + 1);
 
             var wEx = Assert.Throws<ArgumentException>(() => TodoService.Validate(wItem));
             Assert.AreEqual(nameof(wItem.Content), wEx.ParamName);

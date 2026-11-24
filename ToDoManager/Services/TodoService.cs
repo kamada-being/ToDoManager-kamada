@@ -37,6 +37,8 @@ namespace ToDoManager.Services {
         /// </summary>
         /// <param name="vItem">追加または更新するToDoアイテム</param>
         public void AddOrUpdate(TodoItem vItem) {
+            if (vItem == null) throw new ArgumentNullException(nameof(vItem));
+
             if (vItem.Id == 0) {
                 Add(vItem);
             } else {
@@ -55,7 +57,7 @@ namespace ToDoManager.Services {
         /// </summary>
         /// <param name="vItem">検証対象のToDoアイテム</param>
         public static void Validate(TodoItem vItem) {
-            if (string.IsNullOrWhiteSpace(vItem?.Title) || vItem.Title.Length < C_MinTitleLength || vItem.Title.Length > C_MaxTitleLength)
+            if (string.IsNullOrWhiteSpace(vItem?.Title) || vItem.Title.Length > C_MaxTitleLength)
                 throw new ArgumentException($"タイトルは{C_MinTitleLength}文字以上、{C_MaxTitleLength}文字以内で入力してください。", nameof(vItem.Title));
 
             if (vItem.Content?.Length > C_MaxContentLength)

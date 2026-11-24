@@ -53,22 +53,19 @@ namespace ToDoManager {
                 DialogResult = DialogResult.OK;
                 Close();
             } catch (ArgumentException wEx) {
-                var wErrorMessage = string.Empty;
                 switch (wEx.ParamName) {
                     case nameof(TodoItem.Title):
-                        wErrorMessage = $"タイトルは{TodoService.C_MinTitleLength}文字以上、{TodoService.C_MaxTitleLength}文字以内で入力してください。";
                         FTxtTitle.Focus();
                         break;
 
                     case nameof(TodoItem.Content):
-                        wErrorMessage = $"内容は{TodoService.C_MaxContentLength}文字以下で入力してください。";
                         FTxtContent.Focus();
                         break;
 
                     default:
-                        wErrorMessage = wEx.Message;
                         break;
                 }
+                var wErrorMessage = wEx.Message.Split(new[] { "\r\n" }, StringSplitOptions.None)[0];
                 MessageBox.Show(this, wErrorMessage, "入力エラー", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
