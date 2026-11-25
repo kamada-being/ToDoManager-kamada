@@ -27,6 +27,7 @@ namespace ToDoManager {
             FTxtContent.Text = vItem.Content;
             FDtpDueDate.Value = vItem.DueDate == default(DateTime) ? DateTime.Now : vItem.DueDate;
             FChkDone.Checked = vItem.IsCompleted;
+            FCmbPriority.SelectedItem = vItem.Priority;
         }
         #endregion
 
@@ -40,15 +41,17 @@ namespace ToDoManager {
                 Content = FTxtContent.Text,
                 DueDate = FDtpDueDate.Value,
                 IsCompleted = FChkDone.Checked,
+                Priority = FCmbPriority.SelectedItem?.ToString()
             };
 
             try {
                 TodoService.Validate(wItem);
 
-                Item.Title = FTxtTitle.Text;
-                Item.Content = FTxtContent.Text;
-                Item.DueDate = FDtpDueDate.Value;
-                Item.IsCompleted = FChkDone.Checked;
+                Item.Title = wItem.Title;
+                Item.Content = wItem.Content;
+                Item.DueDate = wItem.DueDate;
+                Item.IsCompleted = wItem.IsCompleted;
+                Item.Priority = wItem.Priority;
 
                 DialogResult = DialogResult.OK;
                 Close();

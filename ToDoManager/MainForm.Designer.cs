@@ -12,12 +12,14 @@
         private System.Windows.Forms.TextBox FTxtContent;
         private System.Windows.Forms.DateTimePicker FDtpDueDate;
         private System.Windows.Forms.CheckBox FChkDone;
+        private System.Windows.Forms.ComboBox FCmbPriority;
         private System.Windows.Forms.ListBox FLstItems;
         private System.Windows.Forms.Button FBtnAdd;
         private System.Windows.Forms.Button FBtnEdit;
         private System.Windows.Forms.Button FBtnDelete;
         private System.Windows.Forms.Label FTitleLabel;
         private System.Windows.Forms.Label FContentLabel;
+        private System.Windows.Forms.Label FEditPriorityLabel;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
@@ -52,12 +54,14 @@
             this.FTxtContent = new System.Windows.Forms.TextBox();
             this.FDtpDueDate = new System.Windows.Forms.DateTimePicker();
             this.FChkDone = new System.Windows.Forms.CheckBox();
+            this.FCmbPriority = new System.Windows.Forms.ComboBox();
             this.FLstItems = new System.Windows.Forms.ListBox();
             this.FBtnAdd = new System.Windows.Forms.Button();
             this.FBtnEdit = new System.Windows.Forms.Button();
             this.FBtnDelete = new System.Windows.Forms.Button();
             this.FTitleLabel = new System.Windows.Forms.Label();
             this.FContentLabel = new System.Windows.Forms.Label();
+            this.FEditPriorityLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,7 +96,7 @@
             // FDtpDueDate
             // 
             this.FDtpDueDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.FDtpDueDate.Location = new System.Drawing.Point(445, 253);
+            this.FDtpDueDate.Location = new System.Drawing.Point(446, 262);
             this.FDtpDueDate.Name = "FDtpDueDate";
             this.FDtpDueDate.Size = new System.Drawing.Size(200, 19);
             this.FDtpDueDate.TabIndex = 7;
@@ -100,16 +104,29 @@
             // FChkDone
             // 
             this.FChkDone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.FChkDone.Location = new System.Drawing.Point(445, 278);
+            this.FChkDone.Location = new System.Drawing.Point(446, 296);
             this.FChkDone.Name = "FChkDone";
             this.FChkDone.Size = new System.Drawing.Size(80, 19);
             this.FChkDone.TabIndex = 8;
             this.FChkDone.Text = "完了(&F)";
             // 
+            // FCmbPriority
+            // 
+            this.FCmbPriority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.FCmbPriority.FormattingEnabled = true;
+            this.FCmbPriority.Items.AddRange(new object[] {
+            "低",
+            "中",
+            "高"});
+            this.FCmbPriority.Location = new System.Drawing.Point(446, 351);
+            this.FCmbPriority.Name = "FCmbPriority";
+            this.FCmbPriority.Size = new System.Drawing.Size(200, 20);
+            this.FCmbPriority.TabIndex = 9;
+            // 
             // FLstItems
             // 
-            this.FLstItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.FLstItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FLstItems.ItemHeight = 12;
             this.FLstItems.Location = new System.Drawing.Point(8, 55);
@@ -143,7 +160,7 @@
             // FBtnDelete
             // 
             this.FBtnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.FBtnDelete.Location = new System.Drawing.Point(589, 58);
+            this.FBtnDelete.Location = new System.Drawing.Point(590, 58);
             this.FBtnDelete.Name = "FBtnDelete";
             this.FBtnDelete.Size = new System.Drawing.Size(56, 30);
             this.FBtnDelete.TabIndex = 4;
@@ -155,7 +172,7 @@
             // 
             this.FTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.FTitleLabel.AutoSize = true;
-            this.FTitleLabel.Location = new System.Drawing.Point(442, 104);
+            this.FTitleLabel.Location = new System.Drawing.Point(444, 101);
             this.FTitleLabel.Name = "FTitleLabel";
             this.FTitleLabel.Size = new System.Drawing.Size(40, 12);
             this.FTitleLabel.TabIndex = 0;
@@ -165,11 +182,20 @@
             // 
             this.FContentLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.FContentLabel.AutoSize = true;
-            this.FContentLabel.Location = new System.Drawing.Point(442, 162);
+            this.FContentLabel.Location = new System.Drawing.Point(444, 160);
             this.FContentLabel.Name = "FContentLabel";
             this.FContentLabel.Size = new System.Drawing.Size(29, 12);
             this.FContentLabel.TabIndex = 0;
             this.FContentLabel.Text = "内容";
+            // 
+            // FEditPriorityLabel
+            // 
+            this.FEditPriorityLabel.AutoSize = true;
+            this.FEditPriorityLabel.Location = new System.Drawing.Point(444, 327);
+            this.FEditPriorityLabel.Name = "FEditPriorityLabel";
+            this.FEditPriorityLabel.Size = new System.Drawing.Size(41, 12);
+            this.FEditPriorityLabel.TabIndex = 0;
+            this.FEditPriorityLabel.Text = "優先度";
             // 
             // menuStrip1
             // 
@@ -197,14 +223,14 @@
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.loadToolStripMenuItem.Text = "読込(&L)";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.FBtnXmlLoad_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.saveToolStripMenuItem.Text = "保存(&S)";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.FBtnXml_Click);
             // 
@@ -221,21 +247,21 @@
             // addItemToolStripMenuItem
             // 
             this.addItemToolStripMenuItem.Name = "addItemToolStripMenuItem";
-            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.addItemToolStripMenuItem.Text = "追加(&A)";
             this.addItemToolStripMenuItem.Click += new System.EventHandler(this.FBtnAdd_Click);
             // 
             // editItemToolStripMenuItem
             // 
             this.editItemToolStripMenuItem.Name = "editItemToolStripMenuItem";
-            this.editItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editItemToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.editItemToolStripMenuItem.Text = "編集(&E)";
             this.editItemToolStripMenuItem.Click += new System.EventHandler(this.FBtnEdit_Click);
             // 
             // deleteItemToolStripMenuItem
             // 
             this.deleteItemToolStripMenuItem.Name = "deleteItemToolStripMenuItem";
-            this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.deleteItemToolStripMenuItem.Text = "削除(&D)";
             this.deleteItemToolStripMenuItem.Click += new System.EventHandler(this.FBtnDelete_Click);
             // 
@@ -251,14 +277,14 @@
             // sortByDueDateToolStripMenuItem
             // 
             this.sortByDueDateToolStripMenuItem.Name = "sortByDueDateToolStripMenuItem";
-            this.sortByDueDateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sortByDueDateToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.sortByDueDateToolStripMenuItem.Text = "期限順(&O)";
             this.sortByDueDateToolStripMenuItem.Click += new System.EventHandler(this.SortByDueDateToolStripMenuItem_Click);
             // 
             // sortByAddedOrderToolStripMenuItem
             // 
             this.sortByAddedOrderToolStripMenuItem.Name = "sortByAddedOrderToolStripMenuItem";
-            this.sortByAddedOrderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sortByAddedOrderToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.sortByAddedOrderToolStripMenuItem.Text = "追加順(&T)";
             this.sortByAddedOrderToolStripMenuItem.Click += new System.EventHandler(this.SortByAddedOrderToolStripMenuItem_Click);
             // 
@@ -267,6 +293,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(690, 538);
+            this.Controls.Add(this.FEditPriorityLabel);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.FContentLabel);
             this.Controls.Add(this.FTitleLabel);
@@ -274,6 +301,7 @@
             this.Controls.Add(this.FTxtContent);
             this.Controls.Add(this.FDtpDueDate);
             this.Controls.Add(this.FChkDone);
+            this.Controls.Add(this.FCmbPriority);
             this.Controls.Add(this.FLstItems);
             this.Controls.Add(this.FBtnAdd);
             this.Controls.Add(this.FBtnDelete);

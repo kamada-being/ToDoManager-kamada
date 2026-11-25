@@ -37,6 +37,12 @@ namespace ToDoManager.Models {
         public bool IsCompleted { get; set; }
 
         /// <summary>
+        /// 優先度
+        /// </summary>
+        [XmlElement("Priority")]
+        public string Priority { get; set; } = "中";
+
+        /// <summary>
         /// タイトルと完了状態を表す文字列を返します。
         /// </summary>
         /// <returns>表示用文字列</returns>
