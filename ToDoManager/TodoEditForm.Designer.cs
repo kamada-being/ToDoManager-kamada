@@ -13,6 +13,8 @@
         private System.Windows.Forms.DateTimePicker FDtpDueDate;
         private System.Windows.Forms.CheckBox FChkDone;
         private System.Windows.Forms.Button FBtnSave;
+        private System.Windows.Forms.Label FEditTitleLabel;
+        private System.Windows.Forms.Label FEditContentLabel;
 
         /// <summary>
         /// 使用中のリソースをすべてクリーンアップします。
@@ -126,12 +128,7 @@
             this.Text = "ToDo編集";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
-
         #endregion
-
-        private System.Windows.Forms.Label FEditTitleLabel;
-        private System.Windows.Forms.Label FEditContentLabel;
     }
 }
