@@ -22,6 +22,8 @@ namespace ToDoManager {
         /// <param name="vItem">編集対象のToDoアイテム</param>
         public TodoEditForm(TodoItem vItem) {
             InitializeComponent();
+            FCmbPriority.DataSource = Enum.GetValues(typeof(PriorityEnum));
+
             Item = vItem;
             FTxtTitle.Text = vItem.Title;
             FTxtContent.Text = vItem.Content;
@@ -41,7 +43,7 @@ namespace ToDoManager {
                 Content = FTxtContent.Text,
                 DueDate = FDtpDueDate.Value,
                 IsCompleted = FChkDone.Checked,
-                Priority = FCmbPriority.SelectedItem?.ToString()
+                Priority = FCmbPriority.SelectedItem is PriorityEnum wPriority ? wPriority : PriorityEnum.中
             };
 
             try {

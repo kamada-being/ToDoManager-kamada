@@ -90,10 +90,6 @@
             // 
             this.FCmbPriority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FCmbPriority.FormattingEnabled = true;
-            this.FCmbPriority.Items.AddRange(new object[] {
-            "低",
-            "中",
-            "高"});
             this.FCmbPriority.Location = new System.Drawing.Point(22, 203);
             this.FCmbPriority.Name = "FCmbPriority";
             this.FCmbPriority.Size = new System.Drawing.Size(211, 20);
