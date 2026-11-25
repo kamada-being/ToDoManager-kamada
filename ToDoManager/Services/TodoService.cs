@@ -58,10 +58,10 @@ namespace ToDoManager.Services {
         /// <param name="vItem">検証対象のToDoアイテム</param>
         public static void Validate(TodoItem vItem) {
             if (string.IsNullOrWhiteSpace(vItem?.Title) || vItem.Title.Length > C_MaxTitleLength)
-                throw new ArgumentException($"タイトルは{C_MinTitleLength}文字以上、{C_MaxTitleLength}文字以内で入力してください。", nameof(vItem.Title));
+                throw new ArgumentException($"タイトルは{C_MinTitleLength}文字以上、{C_MaxTitleLength}文字以内で入力してください。");
 
             if (vItem.Content?.Length > C_MaxContentLength)
-                throw new ArgumentException($"内容は{C_MaxContentLength}文字以下で入力してください。", nameof(vItem.Content));
+                throw new ArgumentException($"内容は{C_MaxContentLength}文字以下で入力してください。");
         }
 
         /// <summary>

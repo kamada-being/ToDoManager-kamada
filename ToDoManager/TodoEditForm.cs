@@ -53,20 +53,7 @@ namespace ToDoManager {
                 DialogResult = DialogResult.OK;
                 Close();
             } catch (ArgumentException wEx) {
-                switch (wEx.ParamName) {
-                    case nameof(TodoItem.Title):
-                        FTxtTitle.Focus();
-                        break;
-
-                    case nameof(TodoItem.Content):
-                        FTxtContent.Focus();
-                        break;
-
-                    default:
-                        break;
-                }
-                var wErrorMessage = wEx.Message.Split(new[] { "\r\n" }, StringSplitOptions.None)[0];
-                MessageBox.Show(this, wErrorMessage, "入力エラー", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, wEx.Message, "入力エラー", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         #endregion
