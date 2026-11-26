@@ -98,19 +98,7 @@ namespace ToDoManager.Services {
         /// 追加順にソート
         /// </summary>
         public void SortByAddedOrder() {
-            for (int i = 0; i < FItems.Count - 1; i++) {
-                int wMinIndex = i;
-                for (int j = i + 1; j < FItems.Count; j++) {
-                    if (FItems[j].Id < FItems[wMinIndex].Id) {
-                        wMinIndex = j;
-                    }
-                }
-                if (wMinIndex != i) {
-                    var wTemp = FItems[i];
-                    FItems[i] = FItems[wMinIndex];
-                    FItems[wMinIndex] = wTemp;
-                }
-            }
+            FItems = FItems.OrderBy(x => x.Id).ToList();
         }
         #endregion
 
