@@ -91,7 +91,7 @@ namespace ToDoManager.Services {
         /// 期限順にソート
         /// </summary>
         public void SortByDueDate() {
-            var wTodoItems = FItems.OrderBy(x => x.DueDate).ToList();
+            FItems = FItems.OrderBy(x => x.DueDate).ToList();
         }
 
         /// <summary>
