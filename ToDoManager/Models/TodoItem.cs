@@ -6,14 +6,7 @@ namespace ToDoManager.Models {
     /// 優先度の列挙型
     /// </summary>
     public enum PriorityEnum {
-        [XmlEnum("低")]
-        低,
-
-        [XmlEnum("中")]
-        中,
-
-        [XmlEnum("高")]
-        高
+        低, 中, 高
     }
 
     /// <summary>

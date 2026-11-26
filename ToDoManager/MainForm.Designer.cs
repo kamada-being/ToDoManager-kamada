@@ -245,21 +245,21 @@
             // addItemToolStripMenuItem
             // 
             this.addItemToolStripMenuItem.Name = "addItemToolStripMenuItem";
-            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addItemToolStripMenuItem.Text = "追加(&A)";
             this.addItemToolStripMenuItem.Click += new System.EventHandler(this.FBtnAdd_Click);
             // 
             // editItemToolStripMenuItem
             // 
             this.editItemToolStripMenuItem.Name = "editItemToolStripMenuItem";
-            this.editItemToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.editItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editItemToolStripMenuItem.Text = "編集(&E)";
             this.editItemToolStripMenuItem.Click += new System.EventHandler(this.FBtnEdit_Click);
             // 
             // deleteItemToolStripMenuItem
             // 
             this.deleteItemToolStripMenuItem.Name = "deleteItemToolStripMenuItem";
-            this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteItemToolStripMenuItem.Text = "削除(&D)";
             this.deleteItemToolStripMenuItem.Click += new System.EventHandler(this.FBtnDelete_Click);
             // 
@@ -275,14 +275,14 @@
             // sortByDueDateToolStripMenuItem
             // 
             this.sortByDueDateToolStripMenuItem.Name = "sortByDueDateToolStripMenuItem";
-            this.sortByDueDateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sortByDueDateToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.sortByDueDateToolStripMenuItem.Text = "期限順(&O)";
             this.sortByDueDateToolStripMenuItem.Click += new System.EventHandler(this.SortByDueDateToolStripMenuItem_Click);
             // 
             // sortByAddedOrderToolStripMenuItem
             // 
             this.sortByAddedOrderToolStripMenuItem.Name = "sortByAddedOrderToolStripMenuItem";
-            this.sortByAddedOrderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sortByAddedOrderToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.sortByAddedOrderToolStripMenuItem.Text = "追加順(&T)";
             this.sortByAddedOrderToolStripMenuItem.Click += new System.EventHandler(this.SortByAddedOrderToolStripMenuItem_Click);
             // 
@@ -312,6 +312,7 @@
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
         #endregion
     }
