@@ -10,7 +10,7 @@ namespace ToDoManager.Services {
     /// ToDoアイテムの管理や永続化を行うサービスクラス
     /// </summary>
     public class TodoService {
-        #region フィールド
+        #region フィールド・定数
         private List<TodoItem> FItems = new List<TodoItem>();
         private int FNextId = 1;
         private const string C_FilePath = "todos.xml";
@@ -136,6 +136,7 @@ namespace ToDoManager.Services {
             wExisting.Content = vItem.Content;
             wExisting.DueDate = vItem.DueDate;
             wExisting.IsCompleted = vItem.IsCompleted;
+            wExisting.Priority = vItem.Priority;
         }
         #endregion
     }
