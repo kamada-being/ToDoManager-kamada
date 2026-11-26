@@ -1,7 +1,5 @@
-﻿namespace ToDoManager
-{
-    partial class MainForm
-    {
+﻿namespace ToDoManager {
+    partial class MainForm {
         /// <summary>
         /// 必要なデザイナー変数です。
         /// </summary>
@@ -36,10 +34,8 @@
         /// 使用中のリソースをすべてクリーンアップします。
         /// </summary>
         /// <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
+        protected override void Dispose(bool disposing) {
+            if (disposing && (components != null)) {
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -81,6 +77,7 @@
             this.FTxtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.FTxtTitle.Location = new System.Drawing.Point(445, 126);
             this.FTxtTitle.Name = "FTxtTitle";
+            this.FTxtTitle.ReadOnly = true;
             this.FTxtTitle.Size = new System.Drawing.Size(200, 19);
             this.FTxtTitle.TabIndex = 5;
             // 
@@ -90,20 +87,25 @@
             this.FTxtContent.Location = new System.Drawing.Point(445, 184);
             this.FTxtContent.Multiline = true;
             this.FTxtContent.Name = "FTxtContent";
+            this.FTxtContent.ReadOnly = true;
             this.FTxtContent.Size = new System.Drawing.Size(200, 60);
             this.FTxtContent.TabIndex = 6;
             // 
             // FDtpDueDate
             // 
             this.FDtpDueDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FDtpDueDate.Enabled = false;
             this.FDtpDueDate.Location = new System.Drawing.Point(446, 262);
             this.FDtpDueDate.Name = "FDtpDueDate";
+            this.FDtpDueDate.RightToLeftLayout = true;
+            this.FDtpDueDate.ShowCheckBox = true;
             this.FDtpDueDate.Size = new System.Drawing.Size(200, 19);
             this.FDtpDueDate.TabIndex = 7;
             // 
             // FChkDone
             // 
             this.FChkDone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FChkDone.Enabled = false;
             this.FChkDone.Location = new System.Drawing.Point(446, 296);
             this.FChkDone.Name = "FChkDone";
             this.FChkDone.Size = new System.Drawing.Size(80, 19);
@@ -114,6 +116,7 @@
             // 
             this.FCmbPriority.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.FCmbPriority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.FCmbPriority.Enabled = false;
             this.FCmbPriority.FormattingEnabled = true;
             this.FCmbPriority.Location = new System.Drawing.Point(446, 351);
             this.FCmbPriority.Name = "FCmbPriority";

@@ -15,12 +15,6 @@ namespace ToDoManager {
             InitializeComponent();
             FCmbPriority.DataSource = Enum.GetValues(typeof(PriorityEnum));
 
-            FTxtTitle.ReadOnly = true;
-            FTxtContent.ReadOnly = true;
-            FDtpDueDate.Enabled = false;
-            FChkDone.Enabled = false;
-            FCmbPriority.Enabled = false;
-
             UpdateList();
         }
         #endregion
@@ -39,7 +33,7 @@ namespace ToDoManager {
         /// <summary>
         /// ToDoアイテムの詳細をMainForm右側のフィールドに反映する
         /// </summary>
-        /// <param name="vItem">選択するToDoアイテム</param>
+        /// <param name="vItem">表示するToDoアイテム</param>
         private void UpdateItemDetail(TodoItem vItem) {
             if (vItem == null) {
                 FTxtTitle.Text = string.Empty;
