@@ -27,7 +27,7 @@ namespace ToDoManager {
             Item = vItem;
             FTxtTitle.Text = vItem.Title;
             FTxtContent.Text = vItem.Content;
-            FDtpDueDate.Value = vItem.DueDate == default(DateTime) ? DateTime.Now : vItem.DueDate;
+            FDtpDueDate.Value = vItem.DueDate;
             FChkDone.Checked = vItem.IsCompleted;
             FCmbPriority.SelectedItem = vItem.Priority;
         }

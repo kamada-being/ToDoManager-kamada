@@ -35,7 +35,7 @@ namespace ToDoManager.Models {
         /// 期限日
         /// </summary>
         [XmlElement("DueDate")]
-        public DateTime DueDate { get; set; }
+        public DateTime DueDate { get; set; } = DateTime.Today;
 
         /// <summary>
         /// 完了フラグ

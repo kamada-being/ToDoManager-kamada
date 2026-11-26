@@ -14,7 +14,12 @@ namespace ToDoManager {
         public MainForm() {
             InitializeComponent();
             FCmbPriority.DataSource = Enum.GetValues(typeof(PriorityEnum));
-            FCmbPriority.SelectedItem = PriorityEnum.中;
+
+            FTxtTitle.ReadOnly = true;
+            FTxtContent.ReadOnly = true;
+            FDtpDueDate.Enabled = false;
+            FChkDone.Enabled = false;
+            FCmbPriority.Enabled = false;
 
             UpdateList();
         }
@@ -27,6 +32,29 @@ namespace ToDoManager {
         private void UpdateList() {
             FLstItems.Items.Clear();
             foreach (var wItem in FService.GetItems()) FLstItems.Items.Add(wItem);
+
+            UpdateItemDetail(FLstItems.SelectedItem as TodoItem);
+        }
+
+        /// <summary>
+        /// ToDoアイテムの詳細をMainForm右側のフィールドに反映する
+        /// </summary>
+        /// <param name="vItem">選択するToDoアイテム</param>
+        private void UpdateItemDetail(TodoItem vItem) {
+            if (vItem == null) {
+                FTxtTitle.Text = string.Empty;
+                FTxtContent.Text = string.Empty;
+                FDtpDueDate.Value = DateTime.Today;
+                FChkDone.Checked = false;
+                FCmbPriority.SelectedItem = PriorityEnum.中;
+                return;
+            }
+
+            FTxtTitle.Text = vItem.Title;
+            FTxtContent.Text = vItem.Content;
+            FDtpDueDate.Value = vItem.DueDate;
+            FChkDone.Checked = vItem.IsCompleted;
+            FCmbPriority.SelectedItem = vItem.Priority;
         }
         #endregion
 
@@ -82,6 +110,7 @@ namespace ToDoManager {
         private void FBtnEdit_Click(object sender, EventArgs e) => EditItem();
         private void FBtnDelete_Click(object sender, EventArgs e) => DeleteItem();
         private void FBtnXml_Click(object sender, EventArgs e) => FService.Export();
+        private void FLstItems_SelectedIndexChanged(object sender, EventArgs e) => UpdateItemDetail(FLstItems.SelectedItem as TodoItem);
         private void SortByDueDateToolStripMenuItem_Click(object sender, EventArgs e) => FService.SortByDueDate();
         private void SortByAddedOrderToolStripMenuItem_Click(object sender, EventArgs e) => FService.SortByAddedOrder();
         private void FBtnXmlLoad_Click(object sender, EventArgs e) {

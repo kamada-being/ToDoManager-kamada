@@ -131,6 +131,7 @@
             this.FLstItems.Name = "FLstItems";
             this.FLstItems.Size = new System.Drawing.Size(412, 448);
             this.FLstItems.TabIndex = 1;
+            this.FLstItems.SelectedIndexChanged += new System.EventHandler(this.FLstItems_SelectedIndexChanged);
             // 
             // FBtnAdd
             // 
@@ -245,21 +246,21 @@
             // addItemToolStripMenuItem
             // 
             this.addItemToolStripMenuItem.Name = "addItemToolStripMenuItem";
-            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.addItemToolStripMenuItem.Text = "追加(&A)";
             this.addItemToolStripMenuItem.Click += new System.EventHandler(this.FBtnAdd_Click);
             // 
             // editItemToolStripMenuItem
             // 
             this.editItemToolStripMenuItem.Name = "editItemToolStripMenuItem";
-            this.editItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editItemToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.editItemToolStripMenuItem.Text = "編集(&E)";
             this.editItemToolStripMenuItem.Click += new System.EventHandler(this.FBtnEdit_Click);
             // 
             // deleteItemToolStripMenuItem
             // 
             this.deleteItemToolStripMenuItem.Name = "deleteItemToolStripMenuItem";
-            this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.deleteItemToolStripMenuItem.Text = "削除(&D)";
             this.deleteItemToolStripMenuItem.Click += new System.EventHandler(this.FBtnDelete_Click);
             // 
