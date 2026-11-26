@@ -26,7 +26,7 @@ namespace ToDoManager {
         /// </summary>
         private void UpdateList() {
             FLstItems.Items.Clear();
-            foreach (var wItem in FService.GetItems()) FLstItems.Items.Add(wItem);
+            foreach (var wItem in FService.SearchItems(FTxtSearch.Text)) FLstItems.Items.Add(wItem);
         }
         #endregion
 
@@ -81,6 +81,7 @@ namespace ToDoManager {
         private void FBtnAdd_Click(object sender, EventArgs e) => AddItem();
         private void FBtnEdit_Click(object sender, EventArgs e) => EditItem();
         private void FBtnDelete_Click(object sender, EventArgs e) => DeleteItem();
+        private void FTxtSearch_TextChanged(object sender, EventArgs e) => UpdateList();
         private void FBtnXml_Click(object sender, EventArgs e) => FService.Export();
         private void SortByDueDateToolStripMenuItem_Click(object sender, EventArgs e) {
             FService.SortByDueDate();

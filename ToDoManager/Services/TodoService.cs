@@ -100,6 +100,20 @@ namespace ToDoManager.Services {
         public void SortByAddedOrder() {
             FItems = FItems.OrderBy(x => x.Id).ToList();
         }
+
+        /// <summary>
+        /// 検索窓の文字列に部分一致したタイトルまたは内容を持つアイテムを検索する
+        /// </summary>
+        /// <param name="vKeyword">検索窓の文字列</param>
+        /// <returns>検索条件に一致するToDoアイテムの読み取り専用リスト</returns>
+        public IReadOnlyList<TodoItem> SearchItems(string vKeyword) {
+            var wKeyword = vKeyword?.Trim();
+            if (string.IsNullOrWhiteSpace(wKeyword)) return FItems;
+
+            return FItems.Where(x => (x.Title.IndexOf(wKeyword, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                                     (x.Content?.IndexOf(wKeyword, StringComparison.OrdinalIgnoreCase) >= 0))
+                .ToList();
+        }
         #endregion
 
         #region privateメソッド
