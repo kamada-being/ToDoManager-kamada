@@ -13,6 +13,8 @@ namespace ToDoManager {
 
         public MainForm() {
             InitializeComponent();
+            FCmbPriority.DataSource = Enum.GetValues(typeof(PriorityEnum));
+            FCmbPriority.SelectedItem = PriorityEnum.中;
 
             UpdateList();
         }

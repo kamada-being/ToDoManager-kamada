@@ -3,6 +3,13 @@ using System.Xml.Serialization;
 
 namespace ToDoManager.Models {
     /// <summary>
+    /// 優先度の列挙型
+    /// </summary>
+    public enum PriorityEnum {
+        低, 中, 高
+    }
+
+    /// <summary>
     /// ToDoアイテムのエンティティクラス
     /// </summary>
     [Serializable]
@@ -35,6 +42,12 @@ namespace ToDoManager.Models {
         /// </summary>
         [XmlElement("IsCompleted")]
         public bool IsCompleted { get; set; }
+
+        /// <summary>
+        /// 優先度
+        /// </summary>
+        [XmlElement("Priority")]
+        public PriorityEnum Priority { get; set; } = PriorityEnum.中;
 
         /// <summary>
         /// タイトルと完了状態を表す文字列を返します。

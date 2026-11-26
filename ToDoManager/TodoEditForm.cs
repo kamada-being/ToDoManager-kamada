@@ -22,11 +22,14 @@ namespace ToDoManager {
         /// <param name="vItem">編集対象のToDoアイテム</param>
         public TodoEditForm(TodoItem vItem) {
             InitializeComponent();
+            FCmbPriority.DataSource = Enum.GetValues(typeof(PriorityEnum));
+
             Item = vItem;
             FTxtTitle.Text = vItem.Title;
             FTxtContent.Text = vItem.Content;
             FDtpDueDate.Value = vItem.DueDate == default(DateTime) ? DateTime.Now : vItem.DueDate;
             FChkDone.Checked = vItem.IsCompleted;
+            FCmbPriority.SelectedItem = vItem.Priority;
         }
         #endregion
 
@@ -40,15 +43,17 @@ namespace ToDoManager {
                 Content = FTxtContent.Text,
                 DueDate = FDtpDueDate.Value,
                 IsCompleted = FChkDone.Checked,
+                Priority = FCmbPriority.SelectedItem is PriorityEnum wPriority ? wPriority : PriorityEnum.中
             };
 
             try {
                 TodoService.Validate(wItem);
 
-                Item.Title = FTxtTitle.Text;
-                Item.Content = FTxtContent.Text;
-                Item.DueDate = FDtpDueDate.Value;
-                Item.IsCompleted = FChkDone.Checked;
+                Item.Title = wItem.Title;
+                Item.Content = wItem.Content;
+                Item.DueDate = wItem.DueDate;
+                Item.IsCompleted = wItem.IsCompleted;
+                Item.Priority = wItem.Priority;
 
                 DialogResult = DialogResult.OK;
                 Close();
