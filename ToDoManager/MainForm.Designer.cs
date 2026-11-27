@@ -81,6 +81,7 @@
             this.FTxtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.FTxtTitle.Location = new System.Drawing.Point(445, 126);
             this.FTxtTitle.Name = "FTxtTitle";
+            this.FTxtTitle.ReadOnly = true;
             this.FTxtTitle.Size = new System.Drawing.Size(200, 19);
             this.FTxtTitle.TabIndex = 5;
             // 
@@ -90,6 +91,7 @@
             this.FTxtContent.Location = new System.Drawing.Point(445, 184);
             this.FTxtContent.Multiline = true;
             this.FTxtContent.Name = "FTxtContent";
+            this.FTxtContent.ReadOnly = true;
             this.FTxtContent.Size = new System.Drawing.Size(200, 60);
             this.FTxtContent.TabIndex = 6;
             // 
@@ -104,6 +106,7 @@
             // FDtpDueDate
             // 
             this.FDtpDueDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FDtpDueDate.Enabled = false;
             this.FDtpDueDate.Location = new System.Drawing.Point(446, 262);
             this.FDtpDueDate.Name = "FDtpDueDate";
             this.FDtpDueDate.Size = new System.Drawing.Size(200, 19);
@@ -112,6 +115,7 @@
             // FChkDone
             // 
             this.FChkDone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FChkDone.Enabled = false;
             this.FChkDone.Location = new System.Drawing.Point(446, 296);
             this.FChkDone.Name = "FChkDone";
             this.FChkDone.Size = new System.Drawing.Size(80, 19);
@@ -122,6 +126,7 @@
             // 
             this.FCmbPriority.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.FCmbPriority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.FCmbPriority.Enabled = false;
             this.FCmbPriority.FormattingEnabled = true;
             this.FCmbPriority.Location = new System.Drawing.Point(446, 351);
             this.FCmbPriority.Name = "FCmbPriority";
@@ -139,6 +144,7 @@
             this.FLstItems.Name = "FLstItems";
             this.FLstItems.Size = new System.Drawing.Size(412, 448);
             this.FLstItems.TabIndex = 1;
+            this.FLstItems.SelectedIndexChanged += new System.EventHandler(this.FLstItems_SelectedIndexChanged);
             // 
             // FBtnAdd
             // 
@@ -262,21 +268,21 @@
             // addItemToolStripMenuItem
             // 
             this.addItemToolStripMenuItem.Name = "addItemToolStripMenuItem";
-            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.addItemToolStripMenuItem.Text = "追加(&A)";
             this.addItemToolStripMenuItem.Click += new System.EventHandler(this.FBtnAdd_Click);
             // 
             // editItemToolStripMenuItem
             // 
             this.editItemToolStripMenuItem.Name = "editItemToolStripMenuItem";
-            this.editItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editItemToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.editItemToolStripMenuItem.Text = "編集(&E)";
             this.editItemToolStripMenuItem.Click += new System.EventHandler(this.FBtnEdit_Click);
             // 
             // deleteItemToolStripMenuItem
             // 
             this.deleteItemToolStripMenuItem.Name = "deleteItemToolStripMenuItem";
-            this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.deleteItemToolStripMenuItem.Text = "削除(&D)";
             this.deleteItemToolStripMenuItem.Click += new System.EventHandler(this.FBtnDelete_Click);
             // 

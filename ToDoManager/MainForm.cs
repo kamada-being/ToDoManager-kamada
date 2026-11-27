@@ -14,7 +14,6 @@ namespace ToDoManager {
         public MainForm() {
             InitializeComponent();
             FCmbPriority.DataSource = Enum.GetValues(typeof(PriorityEnum));
-            FCmbPriority.SelectedItem = PriorityEnum.中;
 
             UpdateList();
         }
@@ -27,6 +26,28 @@ namespace ToDoManager {
         private void UpdateList() {
             FLstItems.Items.Clear();
             foreach (var wItem in FService.SearchItems(FTxtSearch.Text)) FLstItems.Items.Add(wItem);
+
+        }
+
+        /// <summary>
+        /// ToDoアイテムの詳細をMainForm右側のフィールドに反映する
+        /// </summary>
+        /// <param name="vItem">表示するToDoアイテム</param>
+        private void UpdateItemDetail(TodoItem vItem) {
+            if (vItem == null) {
+                FTxtTitle.Text = string.Empty;
+                FTxtContent.Text = string.Empty;
+                FDtpDueDate.Value = DateTime.Today;
+                FChkDone.Checked = false;
+                FCmbPriority.SelectedItem = PriorityEnum.中;
+                return;
+            }
+
+            FTxtTitle.Text = vItem.Title;
+            FTxtContent.Text = vItem.Content;
+            FDtpDueDate.Value = vItem.DueDate;
+            FChkDone.Checked = vItem.IsCompleted;
+            FCmbPriority.SelectedItem = vItem.Priority;
         }
         #endregion
 
@@ -83,6 +104,7 @@ namespace ToDoManager {
         private void FBtnDelete_Click(object sender, EventArgs e) => DeleteItem();
         private void FTxtSearch_TextChanged(object sender, EventArgs e) => UpdateList();
         private void FBtnXml_Click(object sender, EventArgs e) => FService.Export();
+        private void FLstItems_SelectedIndexChanged(object sender, EventArgs e) => UpdateItemDetail(FLstItems.SelectedItem as TodoItem);
         private void SortByDueDateToolStripMenuItem_Click(object sender, EventArgs e) {
             FService.SortByDueDate();
             UpdateList();
