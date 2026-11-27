@@ -103,8 +103,19 @@ namespace ToDoManager {
         private void FBtnAdd_Click(object sender, EventArgs e) => AddItem();
         private void FBtnEdit_Click(object sender, EventArgs e) => EditItem();
         private void FBtnDelete_Click(object sender, EventArgs e) => DeleteItem();
+        private void FBtnSave_Click(object sender, EventArgs e) {
+            FService.Export();
+            MessageBox.Show(this, "データを保存しました。", "情報", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void FBtnLoad_Click(object sender, EventArgs e) {
+            if (FService.Import()) {
+                UpdateList();
+                MessageBox.Show(this, "データを読み込みました。", "情報", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } else {
+                MessageBox.Show(this, "指定ファイルが存在しません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void FTxtSearch_TextChanged(object sender, EventArgs e) => UpdateList();
-        private void FBtnXml_Click(object sender, EventArgs e) => FService.Export();
         private void FLstItems_SelectedIndexChanged(object sender, EventArgs e) => UpdateItemDetail(FLstItems.SelectedItem as TodoItem);
         private void SortByDueDateToolStripMenuItem_Click(object sender, EventArgs e) {
             FService.SortByDueDate();
@@ -113,14 +124,6 @@ namespace ToDoManager {
         private void SortByAddedOrderToolStripMenuItem_Click(object sender, EventArgs e) {
             FService.SortByAddedOrder();
             UpdateList();
-        }
-        private void FBtnXmlLoad_Click(object sender, EventArgs e) {
-            if (FService.Import()) {
-                UpdateList();
-                MessageBox.Show(this, "データを読み込みました。", "情報", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            } else {
-                MessageBox.Show(this, "指定ファイルが存在しません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
         #endregion
     }

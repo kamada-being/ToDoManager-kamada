@@ -16,6 +16,8 @@
         private System.Windows.Forms.Button FBtnAdd;
         private System.Windows.Forms.Button FBtnEdit;
         private System.Windows.Forms.Button FBtnDelete;
+        private System.Windows.Forms.Button FBtnLoad;
+        private System.Windows.Forms.Button FBtnSave;
         private System.Windows.Forms.Label FTitleLabel;
         private System.Windows.Forms.Label FContentLabel;
         private System.Windows.Forms.Label FPriorityLabel;
@@ -58,6 +60,8 @@
             this.FBtnAdd = new System.Windows.Forms.Button();
             this.FBtnEdit = new System.Windows.Forms.Button();
             this.FBtnDelete = new System.Windows.Forms.Button();
+            this.FBtnLoad = new System.Windows.Forms.Button();
+            this.FBtnSave = new System.Windows.Forms.Button();
             this.FTitleLabel = new System.Windows.Forms.Label();
             this.FContentLabel = new System.Windows.Forms.Label();
             this.FPriorityLabel = new System.Windows.Forms.Label();
@@ -79,47 +83,51 @@
             // FTxtTitle
             // 
             this.FTxtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.FTxtTitle.Location = new System.Drawing.Point(445, 126);
+            this.FTxtTitle.Location = new System.Drawing.Point(419, 124);
             this.FTxtTitle.Name = "FTxtTitle";
             this.FTxtTitle.ReadOnly = true;
             this.FTxtTitle.Size = new System.Drawing.Size(200, 19);
-            this.FTxtTitle.TabIndex = 5;
+            this.FTxtTitle.TabIndex = 0;
+            this.FTxtTitle.TabStop = false;
             // 
             // FTxtContent
             // 
             this.FTxtContent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.FTxtContent.Location = new System.Drawing.Point(445, 184);
+            this.FTxtContent.Location = new System.Drawing.Point(419, 182);
             this.FTxtContent.Multiline = true;
             this.FTxtContent.Name = "FTxtContent";
             this.FTxtContent.ReadOnly = true;
             this.FTxtContent.Size = new System.Drawing.Size(200, 60);
-            this.FTxtContent.TabIndex = 6;
+            this.FTxtContent.TabIndex = 0;
+            this.FTxtContent.TabStop = false;
             // 
             // FTxtSearch
             // 
             this.FTxtSearch.Location = new System.Drawing.Point(8, 30);
             this.FTxtSearch.Name = "FTxtSearch";
             this.FTxtSearch.Size = new System.Drawing.Size(162, 19);
-            this.FTxtSearch.TabIndex = 9;
+            this.FTxtSearch.TabIndex = 1;
             this.FTxtSearch.TextChanged += new System.EventHandler(this.FTxtSearch_TextChanged);
             // 
             // FDtpDueDate
             // 
             this.FDtpDueDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.FDtpDueDate.Enabled = false;
-            this.FDtpDueDate.Location = new System.Drawing.Point(446, 262);
+            this.FDtpDueDate.Location = new System.Drawing.Point(420, 260);
             this.FDtpDueDate.Name = "FDtpDueDate";
             this.FDtpDueDate.Size = new System.Drawing.Size(200, 19);
-            this.FDtpDueDate.TabIndex = 7;
+            this.FDtpDueDate.TabIndex = 0;
+            this.FDtpDueDate.TabStop = false;
             // 
             // FChkDone
             // 
             this.FChkDone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.FChkDone.Enabled = false;
-            this.FChkDone.Location = new System.Drawing.Point(446, 296);
+            this.FChkDone.Location = new System.Drawing.Point(420, 294);
             this.FChkDone.Name = "FChkDone";
             this.FChkDone.Size = new System.Drawing.Size(80, 19);
-            this.FChkDone.TabIndex = 8;
+            this.FChkDone.TabIndex = 0;
+            this.FChkDone.TabStop = false;
             this.FChkDone.Text = "完了(&F)";
             // 
             // FCmbPriority
@@ -128,31 +136,32 @@
             this.FCmbPriority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FCmbPriority.Enabled = false;
             this.FCmbPriority.FormattingEnabled = true;
-            this.FCmbPriority.Location = new System.Drawing.Point(446, 351);
+            this.FCmbPriority.Location = new System.Drawing.Point(420, 349);
             this.FCmbPriority.Name = "FCmbPriority";
             this.FCmbPriority.Size = new System.Drawing.Size(200, 20);
-            this.FCmbPriority.TabIndex = 9;
+            this.FCmbPriority.TabIndex = 0;
+            this.FCmbPriority.TabStop = false;
             // 
             // FLstItems
             // 
-            this.FLstItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.FLstItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FLstItems.ItemHeight = 12;
             this.FLstItems.Location = new System.Drawing.Point(8, 55);
             this.FLstItems.MinimumSize = new System.Drawing.Size(100, 200);
             this.FLstItems.Name = "FLstItems";
-            this.FLstItems.Size = new System.Drawing.Size(412, 448);
-            this.FLstItems.TabIndex = 1;
+            this.FLstItems.Size = new System.Drawing.Size(364, 364);
+            this.FLstItems.TabIndex = 2;
             this.FLstItems.SelectedIndexChanged += new System.EventHandler(this.FLstItems_SelectedIndexChanged);
             // 
             // FBtnAdd
             // 
             this.FBtnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.FBtnAdd.Location = new System.Drawing.Point(445, 58);
+            this.FBtnAdd.Location = new System.Drawing.Point(419, 55);
             this.FBtnAdd.Name = "FBtnAdd";
             this.FBtnAdd.Size = new System.Drawing.Size(56, 30);
-            this.FBtnAdd.TabIndex = 2;
+            this.FBtnAdd.TabIndex = 3;
             this.FBtnAdd.Text = "追加(&A)";
             this.FBtnAdd.UseVisualStyleBackColor = true;
             this.FBtnAdd.Click += new System.EventHandler(this.FBtnAdd_Click);
@@ -160,10 +169,10 @@
             // FBtnEdit
             // 
             this.FBtnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.FBtnEdit.Location = new System.Drawing.Point(517, 58);
+            this.FBtnEdit.Location = new System.Drawing.Point(491, 55);
             this.FBtnEdit.Name = "FBtnEdit";
             this.FBtnEdit.Size = new System.Drawing.Size(56, 30);
-            this.FBtnEdit.TabIndex = 3;
+            this.FBtnEdit.TabIndex = 4;
             this.FBtnEdit.Text = "編集(&E)";
             this.FBtnEdit.UseVisualStyleBackColor = true;
             this.FBtnEdit.Click += new System.EventHandler(this.FBtnEdit_Click);
@@ -171,19 +180,41 @@
             // FBtnDelete
             // 
             this.FBtnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.FBtnDelete.Location = new System.Drawing.Point(590, 58);
+            this.FBtnDelete.Location = new System.Drawing.Point(564, 55);
             this.FBtnDelete.Name = "FBtnDelete";
             this.FBtnDelete.Size = new System.Drawing.Size(56, 30);
-            this.FBtnDelete.TabIndex = 4;
+            this.FBtnDelete.TabIndex = 5;
             this.FBtnDelete.Text = "削除(&D)";
             this.FBtnDelete.UseVisualStyleBackColor = true;
             this.FBtnDelete.Click += new System.EventHandler(this.FBtnDelete_Click);
+            // 
+            // FBtnLoad
+            // 
+            this.FBtnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.FBtnLoad.Location = new System.Drawing.Point(491, 390);
+            this.FBtnLoad.Name = "FBtnLoad";
+            this.FBtnLoad.Size = new System.Drawing.Size(56, 30);
+            this.FBtnLoad.TabIndex = 6;
+            this.FBtnLoad.Text = "読込(&L)";
+            this.FBtnLoad.UseVisualStyleBackColor = true;
+            this.FBtnLoad.Click += new System.EventHandler(this.FBtnLoad_Click);
+            // 
+            // FBtnSave
+            // 
+            this.FBtnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.FBtnSave.Location = new System.Drawing.Point(564, 390);
+            this.FBtnSave.Name = "FBtnSave";
+            this.FBtnSave.Size = new System.Drawing.Size(56, 30);
+            this.FBtnSave.TabIndex = 7;
+            this.FBtnSave.Text = "保存(&S)";
+            this.FBtnSave.UseVisualStyleBackColor = true;
+            this.FBtnSave.Click += new System.EventHandler(this.FBtnSave_Click);
             // 
             // FTitleLabel
             // 
             this.FTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.FTitleLabel.AutoSize = true;
-            this.FTitleLabel.Location = new System.Drawing.Point(444, 101);
+            this.FTitleLabel.Location = new System.Drawing.Point(418, 99);
             this.FTitleLabel.Name = "FTitleLabel";
             this.FTitleLabel.Size = new System.Drawing.Size(40, 12);
             this.FTitleLabel.TabIndex = 0;
@@ -193,7 +224,7 @@
             // 
             this.FContentLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.FContentLabel.AutoSize = true;
-            this.FContentLabel.Location = new System.Drawing.Point(444, 160);
+            this.FContentLabel.Location = new System.Drawing.Point(418, 158);
             this.FContentLabel.Name = "FContentLabel";
             this.FContentLabel.Size = new System.Drawing.Size(29, 12);
             this.FContentLabel.TabIndex = 0;
@@ -203,7 +234,7 @@
             // 
             this.FPriorityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.FPriorityLabel.AutoSize = true;
-            this.FPriorityLabel.Location = new System.Drawing.Point(444, 327);
+            this.FPriorityLabel.Location = new System.Drawing.Point(418, 325);
             this.FPriorityLabel.Name = "FPriorityLabel";
             this.FPriorityLabel.Size = new System.Drawing.Size(41, 12);
             this.FPriorityLabel.TabIndex = 0;
@@ -215,7 +246,7 @@
             this.FSearchLabel.Location = new System.Drawing.Point(176, 33);
             this.FSearchLabel.Name = "FSearchLabel";
             this.FSearchLabel.Size = new System.Drawing.Size(29, 12);
-            this.FSearchLabel.TabIndex = 10;
+            this.FSearchLabel.TabIndex = 0;
             this.FSearchLabel.Text = "検索";
             // 
             // menuStrip1
@@ -228,7 +259,7 @@
             this.viewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(690, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(676, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -246,14 +277,14 @@
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             this.loadToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.loadToolStripMenuItem.Text = "読込(&L)";
-            this.loadToolStripMenuItem.Click += new System.EventHandler(this.FBtnXmlLoad_Click);
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.FBtnLoad_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.saveToolStripMenuItem.Text = "保存(&S)";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.FBtnXml_Click);
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.FBtnSave_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -313,7 +344,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(690, 538);
+            this.ClientSize = new System.Drawing.Size(676, 445);
+            this.Controls.Add(this.FBtnSave);
+            this.Controls.Add(this.FBtnLoad);
             this.Controls.Add(this.FPriorityLabel);
             this.Controls.Add(this.FSearchLabel);
             this.Controls.Add(this.menuStrip1);
@@ -330,7 +363,7 @@
             this.Controls.Add(this.FBtnDelete);
             this.Controls.Add(this.FBtnEdit);
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(447, 414);
+            this.MinimumSize = new System.Drawing.Size(692, 484);
             this.Name = "MainForm";
             this.Text = "ToDo管理";
             this.menuStrip1.ResumeLayout(false);
