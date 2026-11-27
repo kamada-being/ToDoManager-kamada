@@ -25,12 +25,36 @@ namespace ToDoManager.Services {
         public TodoService() {
         }
 
-        #region publicメソッド
+        #region メソッド
         /// <summary>
         /// ToDoアイテムの一覧を取得する
         /// </summary>
         /// <returns>登録されているToDoアイテムの読み取り専用リスト</returns>
         public IReadOnlyList<TodoItem> GetItems() => FItems;
+
+        /// <summary>
+        /// 新しいToDoアイテムをコレクションに追加
+        /// </summary>
+        /// <param name="vItem">ToDoアイテム</param>
+        private void Add(TodoItem vItem) {
+            vItem.Id = FNextId++;
+            FItems.Add(vItem);
+        }
+
+        /// <summary>
+        /// 既存のToDoアイテムの内容を更新
+        /// </summary>
+        /// <param name="vItem">ToDoアイテム</param>
+        private void Update(TodoItem vItem) {
+            var wExisting = FItems.FirstOrDefault(x => x.Id == vItem.Id);
+            if (wExisting == null) throw new InvalidOperationException("更新対象のToDoが存在しません。");
+
+            wExisting.Title = vItem.Title;
+            wExisting.Content = vItem.Content;
+            wExisting.DueDate = vItem.DueDate;
+            wExisting.IsCompleted = vItem.IsCompleted;
+            wExisting.Priority = vItem.Priority;
+        }
 
         /// <summary>
         /// ToDoアイテムを追加または更新
@@ -111,35 +135,9 @@ namespace ToDoManager.Services {
             var wKeyword = vKeyword?.Trim();
             if (string.IsNullOrWhiteSpace(wKeyword)) return FItems;
 
-            return FItems.Where(x => (x.Title.IndexOf(wKeyword, StringComparison.OrdinalIgnoreCase) >= 0) ||
+            return FItems.Where(x => (x.Title?.IndexOf(wKeyword, StringComparison.OrdinalIgnoreCase) >= 0) ||
                                      (x.Content?.IndexOf(wKeyword, StringComparison.OrdinalIgnoreCase) >= 0))
                 .ToList();
-        }
-        #endregion
-
-        #region privateメソッド
-        /// <summary>
-        /// 新しいToDoアイテムをコレクションに追加
-        /// </summary>
-        /// <param name="vItem">ToDoアイテム</param>
-        private void Add(TodoItem vItem) {
-            vItem.Id = FNextId++;
-            FItems.Add(vItem);
-        }
-
-        /// <summary>
-        /// 既存のToDoアイテムの内容を更新
-        /// </summary>
-        /// <param name="vItem">ToDoアイテム</param>
-        private void Update(TodoItem vItem) {
-            var wExisting = FItems.FirstOrDefault(x => x.Id == vItem.Id);
-            if (wExisting == null) throw new InvalidOperationException("更新対象のToDoが存在しません。");
-
-            wExisting.Title = vItem.Title;
-            wExisting.Content = vItem.Content;
-            wExisting.DueDate = vItem.DueDate;
-            wExisting.IsCompleted = vItem.IsCompleted;
-            wExisting.Priority = vItem.Priority;
         }
         #endregion
     }
