@@ -106,13 +106,9 @@ namespace ToDoManager {
         private void FTxtSearch_TextChanged(object sender, EventArgs e) => UpdateList();
         private void FBtnXml_Click(object sender, EventArgs e) => FService.Export();
         private void FLstItems_SelectedIndexChanged(object sender, EventArgs e) => UpdateItemDetail(FLstItems.SelectedItem as TodoItem);
-        private void SortByDueDateToolStripMenuItem_Click(object sender, EventArgs e) {
-            FService.SortByDueDate();
-            UpdateList();
-        }
-        private void SortByAddedOrderToolStripMenuItem_Click(object sender, EventArgs e) {
-            FService.SortByAddedOrder();
-            UpdateList();
+        private void FBtnXmlSave_Click(object sender, EventArgs e) {
+            FService.Export();
+            MessageBox.Show(this, "データを保存しました。", "情報", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void FBtnXmlLoad_Click(object sender, EventArgs e) {
             if (FService.Import()) {
@@ -121,6 +117,14 @@ namespace ToDoManager {
             } else {
                 MessageBox.Show(this, "指定ファイルが存在しません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void SortByDueDateToolStripMenuItem_Click(object sender, EventArgs e) {
+            FService.SortByDueDate();
+            UpdateList();
+        }
+        private void SortByAddedOrderToolStripMenuItem_Click(object sender, EventArgs e) {
+            FService.SortByAddedOrder();
+            UpdateList();
         }
         #endregion
     }
