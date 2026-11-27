@@ -97,8 +97,6 @@
             this.FDtpDueDate.Enabled = false;
             this.FDtpDueDate.Location = new System.Drawing.Point(446, 262);
             this.FDtpDueDate.Name = "FDtpDueDate";
-            this.FDtpDueDate.RightToLeftLayout = true;
-            this.FDtpDueDate.ShowCheckBox = true;
             this.FDtpDueDate.Size = new System.Drawing.Size(200, 19);
             this.FDtpDueDate.TabIndex = 7;
             // 
