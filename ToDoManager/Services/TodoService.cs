@@ -79,8 +79,9 @@ namespace ToDoManager.Services {
             if (!File.Exists(C_FilePath)) return false;
 
             var wSerializer = new XmlSerializer(typeof(List<TodoItem>));
-            var wStreamReader = new StreamReader(C_FilePath);
-            FItems = (List<TodoItem>)wSerializer.Deserialize(wStreamReader);
+            using (var wStreamReader = new StreamReader(C_FilePath)) {
+                FItems = (List<TodoItem>)wSerializer.Deserialize(wStreamReader);
+            }
 
             FNextId = FItems.Any() ? FItems.Max(x => x.Id) + 1 : 1;
 
