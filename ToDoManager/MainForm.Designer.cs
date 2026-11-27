@@ -8,6 +8,7 @@
         // コントロール宣言（F接頭辞＋パスカル型）
         private System.Windows.Forms.TextBox FTxtTitle;
         private System.Windows.Forms.TextBox FTxtContent;
+        private System.Windows.Forms.TextBox FTxtSearch;
         private System.Windows.Forms.DateTimePicker FDtpDueDate;
         private System.Windows.Forms.CheckBox FChkDone;
         private System.Windows.Forms.ComboBox FCmbPriority;
@@ -18,6 +19,7 @@
         private System.Windows.Forms.Label FTitleLabel;
         private System.Windows.Forms.Label FContentLabel;
         private System.Windows.Forms.Label FPriorityLabel;
+        private System.Windows.Forms.Label FSearchLabel;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
@@ -48,6 +50,7 @@
         private void InitializeComponent() {
             this.FTxtTitle = new System.Windows.Forms.TextBox();
             this.FTxtContent = new System.Windows.Forms.TextBox();
+            this.FTxtSearch = new System.Windows.Forms.TextBox();
             this.FDtpDueDate = new System.Windows.Forms.DateTimePicker();
             this.FChkDone = new System.Windows.Forms.CheckBox();
             this.FCmbPriority = new System.Windows.Forms.ComboBox();
@@ -58,6 +61,7 @@
             this.FTitleLabel = new System.Windows.Forms.Label();
             this.FContentLabel = new System.Windows.Forms.Label();
             this.FPriorityLabel = new System.Windows.Forms.Label();
+            this.FSearchLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,6 +95,14 @@
             this.FTxtContent.Size = new System.Drawing.Size(200, 60);
             this.FTxtContent.TabIndex = 6;
             // 
+            // FTxtSearch
+            // 
+            this.FTxtSearch.Location = new System.Drawing.Point(8, 30);
+            this.FTxtSearch.Name = "FTxtSearch";
+            this.FTxtSearch.Size = new System.Drawing.Size(162, 19);
+            this.FTxtSearch.TabIndex = 9;
+            this.FTxtSearch.TextChanged += new System.EventHandler(this.FTxtSearch_TextChanged);
+            // 
             // FDtpDueDate
             // 
             this.FDtpDueDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -123,8 +135,8 @@
             // 
             // FLstItems
             // 
-            this.FLstItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.FLstItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FLstItems.ItemHeight = 12;
             this.FLstItems.Location = new System.Drawing.Point(8, 55);
@@ -196,6 +208,15 @@
             this.FPriorityLabel.Size = new System.Drawing.Size(41, 12);
             this.FPriorityLabel.TabIndex = 0;
             this.FPriorityLabel.Text = "優先度";
+            // 
+            // FSearchLabel
+            // 
+            this.FSearchLabel.AutoSize = true;
+            this.FSearchLabel.Location = new System.Drawing.Point(176, 33);
+            this.FSearchLabel.Name = "FSearchLabel";
+            this.FSearchLabel.Size = new System.Drawing.Size(29, 12);
+            this.FSearchLabel.TabIndex = 10;
+            this.FSearchLabel.Text = "検索";
             // 
             // menuStrip1
             // 
@@ -294,11 +315,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(690, 538);
             this.Controls.Add(this.FPriorityLabel);
+            this.Controls.Add(this.FSearchLabel);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.FContentLabel);
             this.Controls.Add(this.FTitleLabel);
             this.Controls.Add(this.FTxtTitle);
             this.Controls.Add(this.FTxtContent);
+            this.Controls.Add(this.FTxtSearch);
             this.Controls.Add(this.FDtpDueDate);
             this.Controls.Add(this.FChkDone);
             this.Controls.Add(this.FCmbPriority);
