@@ -27,6 +27,7 @@ namespace ToDoManager {
             FLstItems.Items.Clear();
             foreach (var wItem in FService.SearchItems(FTxtSearch.Text)) FLstItems.Items.Add(wItem);
 
+            UpdateItemDetail(FLstItems.SelectedItem as TodoItem);
         }
 
         /// <summary>
