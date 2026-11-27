@@ -197,7 +197,7 @@
             this.FBtnLoad.TabIndex = 6;
             this.FBtnLoad.Text = "読込(&L)";
             this.FBtnLoad.UseVisualStyleBackColor = true;
-            this.FBtnLoad.Click += new System.EventHandler(this.FBtnXmlLoad_Click);
+            this.FBtnLoad.Click += new System.EventHandler(this.FBtnLoad_Click);
             // 
             // FBtnSave
             // 
@@ -208,7 +208,7 @@
             this.FBtnSave.TabIndex = 7;
             this.FBtnSave.Text = "保存(&S)";
             this.FBtnSave.UseVisualStyleBackColor = true;
-            this.FBtnSave.Click += new System.EventHandler(this.FBtnXmlSave_Click);
+            this.FBtnSave.Click += new System.EventHandler(this.FBtnSave_Click);
             // 
             // FTitleLabel
             // 
@@ -277,14 +277,14 @@
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             this.loadToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.loadToolStripMenuItem.Text = "読込(&L)";
-            this.loadToolStripMenuItem.Click += new System.EventHandler(this.FBtnXmlLoad_Click);
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.FBtnLoad_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.saveToolStripMenuItem.Text = "保存(&S)";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.FBtnXmlSave_Click);
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.FBtnSave_Click);
             // 
             // editToolStripMenuItem
             // 
